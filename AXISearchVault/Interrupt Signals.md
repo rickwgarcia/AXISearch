@@ -15,7 +15,11 @@ This is how exactly we will get the data from the [[MicroBlaze]] memory to the [
 2. **`SENTINEL_SetPattern(...)`**: Sets the 64-bit target.
 3. **`SENTINEL_StartSearch(...)`**: Triggers the FSM.
 4. **`SENTINEL_GetStatus(...)`**: Reads the results.
-Sample C code for transfer
+
+
+**[[Register Addressing in C]]:**
+When writing drivers, we use a Base Address (where the IP starts in memory) and add the Offset to reach specific registers. In Xilinx environments, we often use a provided macro like Xil_Out32(address, value) to perform the write operation.If our data registers start at DATA_START_OFFSET (which we defined as 0x08), each subsequent register is 4 bytes away. So, the address for the $i$-th register would be:$$\text{Address} = \text{BaseAddress} + \text{DATA\_START\_OFFSET} + (i \times 4)$$
+**[[The Transfer Function]]:**
 ```
 void SENTINEL_TransferData(u32 base_addr, u32 *source_ptr) {
     for (int i = 0; i < 128; i++) {
