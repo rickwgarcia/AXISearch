@@ -5,7 +5,7 @@ This roadmap outlines the steps to design, implement, and test an AXI-compatible
 
 Before writing code, you must understand how the [[MicroBlaze]] communicates with your hardware.
 
-* **[[AXI4-Lite Protocol]]:** Learn the 5-channel handshake (AW, W, B, AR, R). Since you need 128+ registers, you’ll be implementing a Register Map.
+* **[[AXI4-Lite]]:** Learn the 5-channel handshake (AW, W, B, AR, R). Since you need 128+ registers, you’ll be implementing a Register Map.
 * **[[Memory Mapping]]:** Plan your address space.
 * *Task:* Create an Excel sheet or table mapping offsets (e.g., `0x00`, `0x04`) to your registers (Sentinel, Data Block, Status, Control).
 * **[[Vivado IP Packager]]:** Explore the "Create and Package New IP" wizard. It generates a template with the AXI-Lite interface logic already written for you.

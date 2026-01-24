@@ -26,9 +26,11 @@ There are three different combination of valid and ready we can have:
 **What is [[FIFO]]?** In FPGA design, a FIFO (First-In-First-Out) is a dual-port memory buffer used to transfer data between different parts of a system. It acts like a queue: the first piece of data written into the buffer is the first one to be read out.
 
 In the context of AXI4, FIFOs are the "glue" that ensures high-performance, reliable communication between IP cores.
-# AXI4-Lite
+# AXI4-Lite Transaction
 
 ![](https://www.youtube.com/watch?v=p5RIVEuxUds)
+
+![[Pasted image 20260123161943.png]]
 
 **AXI-Stream Rules Summary**
 1.  Valid can't depend on ready
@@ -36,10 +38,18 @@ In the context of AXI4, FIFOs are the "glue" that ensures high-performance, reli
 3. Valid remains high constantly 
 4. Transaction end when ready and valid are both asserted
 
+**AXI Rule Summary**
+1. BVALID must only be asserted after W and AW transfer
+2. RVALID must only be asserted after AR transaction
 
 
 
+# AXI4-Lite [[Finite State Machine]]
+![](https://www.youtube.com/watch?v=y0z5Cg4gp6k)
 
-
-
+**Example:** 
+The states are defined as
+```
+typedef enum {IDLE, WR_REG_VDMACR, WR_REG_MM2S_HSIZE, WR_REG_MM2S_VSIZE, RD_REG_VDMACR, RD_REG_MM2S_HSIZE, RD_REG_MM2S_VSIZE}  my_state;
+```
 
