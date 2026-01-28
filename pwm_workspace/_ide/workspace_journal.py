@@ -13,3 +13,30 @@ status = platform.build()
 
 comp = client.create_app_component(name="app_component",platform = "$COMPONENT_LOCATION/../pwm_platform/export/pwm_platform/pwm_platform.xpfm",domain = "standalone_microblaze_0")
 
+status = platform.build()
+
+status = platform.build()
+
+status = platform.build()
+
+status = platform.build()
+
+comp = client.get_component(name="app_component")
+comp.build()
+
+status = platform.build()
+
+component = client.get_component(name="app_component")
+
+lscript = component.get_ld_script(path="/home/rickg/Desktop/AXISearch/pwm_workspace/app_component/src/lscript.ld")
+
+lscript.regenerate()
+
+status = platform.build()
+
+comp.build()
+
+status = platform.build()
+
+vitis.dispose()
+
