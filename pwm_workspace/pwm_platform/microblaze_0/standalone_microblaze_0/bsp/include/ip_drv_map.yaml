@@ -1,0 +1,6 @@
+microblaze_0_local_memory_dlmb_bram_if_cntlr:
+- lmb_bram_if_cntlr
+- bram
+my_pwm_ip_0:
+- my_pwm_ip
+- None

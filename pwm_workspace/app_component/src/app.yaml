@@ -1,0 +1,4 @@
+domain_path: /home/rickg/Desktop/AXISearch/pwm_workspace/pwm_platform/export/pwm_platform/sw/standalone_microblaze_0
+app_src_dir: /tools/Xilinx/2025.1/Vitis/data/embeddedsw/lib/sw_apps/empty_application
+template: empty_application
+lang: c
