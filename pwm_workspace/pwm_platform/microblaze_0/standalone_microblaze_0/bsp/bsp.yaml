@@ -1,7 +1,7 @@
 sdt: hw_artifacts/microblaze_0_baremetal.dts
 family: zynq
 path: /home/rickg/Desktop/AXISearch/pwm_workspace/pwm_platform/microblaze_0/standalone_microblaze_0/bsp
-config: default
+config: None
 os: standalone
 os_info:
   standalone:
