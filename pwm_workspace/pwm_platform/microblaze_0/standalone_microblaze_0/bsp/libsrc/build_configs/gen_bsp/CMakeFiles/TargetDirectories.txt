@@ -24,6 +24,13 @@
 /home/rickg/Desktop/AXISearch/pwm_workspace/pwm_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/common/src/CMakeFiles/install.dir
 /home/rickg/Desktop/AXISearch/pwm_workspace/pwm_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/common/src/CMakeFiles/install/local.dir
 /home/rickg/Desktop/AXISearch/pwm_workspace/pwm_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/common/src/CMakeFiles/install/strip.dir
+/home/rickg/Desktop/AXISearch/pwm_workspace/pwm_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/uartlite/src/CMakeFiles/uartlite.dir
+/home/rickg/Desktop/AXISearch/pwm_workspace/pwm_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/uartlite/src/CMakeFiles/edit_cache.dir
+/home/rickg/Desktop/AXISearch/pwm_workspace/pwm_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/uartlite/src/CMakeFiles/rebuild_cache.dir
+/home/rickg/Desktop/AXISearch/pwm_workspace/pwm_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/uartlite/src/CMakeFiles/list_install_components.dir
+/home/rickg/Desktop/AXISearch/pwm_workspace/pwm_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/uartlite/src/CMakeFiles/install.dir
+/home/rickg/Desktop/AXISearch/pwm_workspace/pwm_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/uartlite/src/CMakeFiles/install/local.dir
+/home/rickg/Desktop/AXISearch/pwm_workspace/pwm_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/uartlite/src/CMakeFiles/install/strip.dir
 /home/rickg/Desktop/AXISearch/pwm_workspace/pwm_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/standalone/src/CMakeFiles/xilstandalone.dir
 /home/rickg/Desktop/AXISearch/pwm_workspace/pwm_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/standalone/src/CMakeFiles/edit_cache.dir
 /home/rickg/Desktop/AXISearch/pwm_workspace/pwm_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/standalone/src/CMakeFiles/rebuild_cache.dir

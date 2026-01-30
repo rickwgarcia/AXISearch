@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.1 (lin64) Build 6140274 Wed May 21 22:58:25 MDT 2025
-//Date        : Thu Jan 29 14:55:24 2026
+//Date        : Fri Jan 30 11:53:07 2026
 //Host        : rick-g-laptop running 64-bit Ubuntu 24.04.3 LTS
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -13,17 +13,25 @@
 module design_1_wrapper
    (PWM_OUT_0,
     clk_100MHz,
-    reset_rtl_0);
+    reset_rtl_0,
+    rx_0,
+    tx_0);
   output PWM_OUT_0;
   input clk_100MHz;
   input reset_rtl_0;
+  input rx_0;
+  output tx_0;
 
   wire PWM_OUT_0;
   wire clk_100MHz;
   wire reset_rtl_0;
+  wire rx_0;
+  wire tx_0;
 
   design_1 design_1_i
        (.PWM_OUT_0(PWM_OUT_0),
         .clk_100MHz(clk_100MHz),
-        .reset_rtl_0(reset_rtl_0));
+        .reset_rtl_0(reset_rtl_0),
+        .rx_0(rx_0),
+        .tx_0(tx_0));
 endmodule

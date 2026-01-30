@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.1 (lin64) Build 6140274 Wed May 21 22:58:25 MDT 2025
-| Date         : Thu Jan 29 14:57:09 2026
+| Date         : Fri Jan 30 11:55:30 2026
 | Host         : rick-g-laptop running 64-bit Ubuntu 24.04.3 LTS
 | Command      : report_methodology -file design_1_wrapper_methodology_drc_routed.rpt -pb design_1_wrapper_methodology_drc_routed.pb -rpx design_1_wrapper_methodology_drc_routed.rpx
 | Design       : design_1_wrapper
@@ -23,14 +23,14 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max checks: <unlimited>
-             Checks found: 8
+             Checks found: 10
 +-----------+------------------+------------------------------------------------------------------+--------+
 | Rule      | Severity         | Description                                                      | Checks |
 +-----------+------------------+------------------------------------------------------------------+--------+
 | TIMING-6  | Critical Warning | No common primary clock between related clocks                   | 2      |
 | LUTAR-1   | Warning          | LUT drives async reset alert                                     | 1      |
 | TIMING-9  | Warning          | Unknown CDC Logic                                                | 1      |
-| TIMING-18 | Warning          | Missing input or output delay                                    | 2      |
+| TIMING-18 | Warning          | Missing input or output delay                                    | 4      |
 | TIMING-56 | Warning          | Missing logically or physically excluded clock groups constraint | 2      |
 +-----------+------------------+------------------------------------------------------------------+--------+
 
@@ -63,7 +63,17 @@ Related violations: <none>
 
 TIMING-18#2 Warning
 Missing input or output delay  
+An input delay is missing on rx_0 relative to the rising and/or falling clock edge(s) of clk_100MHz, sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
 An output delay is missing on PWM_OUT_0 relative to the rising and/or falling clock edge(s) of clk_100MHz, sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An output delay is missing on tx_0 relative to the rising and/or falling clock edge(s) of clk_100MHz, sys_clk_pin.
 Related violations: <none>
 
 TIMING-56#1 Warning

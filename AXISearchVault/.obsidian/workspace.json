@@ -27,7 +27,7 @@
       {
         "id": "7c4e8f8a240a435b",
         "type": "tabs",
-        "dimension": 31.370826010544818,
+        "dimension": 31.370826010544814,
         "children": [
           {
             "id": "a6c05d31e43149ec",
@@ -96,7 +96,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "6fbc239b6bd5ef11",
@@ -201,7 +201,7 @@
       "graph:Open graph view": false
     }
   },
-  "active": "a6c05d31e43149ec",
+  "active": "d66bfa1f5305dce2",
   "lastOpenFiles": [
     "AXI4-Lite.md",
     "Project Roadmap.md",

@@ -1,7 +1,11 @@
 set_property SRC_FILE_INFO {cfile:/home/rickg/Desktop/AXISearch/pwm_ip_demo/pwm_ip_demo.srcs/constrs_1/new/pwm_constr.xdc rfile:../../../pwm_ip_demo.srcs/constrs_1/new/pwm_constr.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:8 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN K17 IOSTANDARD LVCMOS33 } [get_ports { clk_100MHz }];
-set_property src_info {type:XDC file:1 line:20 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN K18 IOSTANDARD LVCMOS33 } [get_ports { reset_rtl_0 }]
+set_property src_info {type:XDC file:1 line:13 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN G15   IOSTANDARD LVCMOS33 } [get_ports { reset_rtl_0 }]; #IO_L19N_T3_VREF_35 Sch=sw[0]
 set_property src_info {type:XDC file:1 line:27 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN M14   IOSTANDARD LVCMOS33 } [get_ports { PWM_OUT_0 }]; #IO_L23P_T3_35 Sch=led[0]
+set_property src_info {type:XDC file:1 line:126 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN V15   IOSTANDARD LVCMOS33     } [get_ports { tx_0 }]; #IO_L10P_T1_34 Sch=jc_p[1]
+set_property src_info {type:XDC file:1 line:127 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN W15   IOSTANDARD LVCMOS33     } [get_ports { rx_0 }]; #IO_L10N_T1_34 Sch=jc_n[1]

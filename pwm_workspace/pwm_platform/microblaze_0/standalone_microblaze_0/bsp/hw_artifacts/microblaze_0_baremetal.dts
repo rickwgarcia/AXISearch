@@ -15,10 +15,11 @@
                 #size-cells = <0x0>;
                 address-map = <0x0 &microblaze_0_local_memory_dlmb_bram_if_cntlr_memory 0x0 0x20000>,
                  <0x0 &microblaze_0_local_memory_dlmb_bram_if_cntlr 0x0 0x20000>,
+                 <0x40600000 &axi_uartlite_0 0x40600000 0x10000>,
                  <0x44a00000 &my_pwm_ip_0 0x44a00000 0x10000>;
                 #ranges-address-cells = <0x1>;
                 #ranges-size-cells = <0x1>;
-                phandle = <0x5>;
+                phandle = <0x7>;
 
                 microblaze_0: cpu@0 {
                         xlnx,reset-msr-dce = <0x0>;
@@ -89,7 +90,7 @@
                         xlnx,dcache-use-writeback = <0x0>;
                         xlnx,div-zero-exception = <0x0>;
                         xlnx,mmu-tlb-access = <0x3>;
-                        bus-handle = <0x4>;
+                        bus-handle = <0x5>;
                         xlnx,cache-byte-size = <0x2000>;
                         xlnx,pvr-user2 = <0x0>;
                         xlnx,opcode-0x0-illegal = <0x0>;
@@ -164,14 +165,14 @@
                         xlnx,use-msr-instr = <0x0>;
                         xlnx,icache-data-width = <0x0>;
                         xlnx,debug-counter-width = <0x20>;
-                        phandle = <0x6>;
+                        phandle = <0x8>;
                 };
         };
 
         clock: clocks {
                 #address-cells = <0x1>;
                 #size-cells = <0x0>;
-                phandle = <0x7>;
+                phandle = <0x9>;
 
                 clk_cpu_0: clk_cpu@0 {
                         compatible = "fixed-clock";
@@ -179,7 +180,16 @@
                         clock-frequency = <0x5f5e100>;
                         clock-output-names = "clk_cpu";
                         #clock-cells = <0x0>;
-                        phandle = <0x8>;
+                        phandle = <0xa>;
+                };
+
+                clk_bus_0: clk_bus_0@1 {
+                        compatible = "fixed-clock";
+                        reg = <0x1>;
+                        clock-frequency = <0x5f5e100>;
+                        clock-output-names = "clk_bus_0";
+                        #clock-cells = <0x0>;
+                        phandle = <0x6>;
                 };
         };
 
@@ -188,7 +198,27 @@
                 compatible = "simple-bus";
                 #address-cells = <0x1>;
                 #size-cells = <0x1>;
-                phandle = <0x4>;
+                phandle = <0x5>;
+
+                axi_uartlite_0: serial@40600000 {
+                        compatible = "xlnx,axi-uartlite-2.0", "xlnx,xps-uartlite-1.00.a";
+                        clock-frequency = <0x5f5e100>;
+                        xlnx,uartlite-board-interface = "Custom";
+                        xlnx,s-axi-aclk-freq-hz-d = <0x64>;
+                        xlnx,ip-name = "axi_uartlite";
+                        reg = <0x40600000 0x10000>;
+                        xlnx,baudrate = <0x1c200>;
+                        clocks = <&clk_bus_0>;
+                        current-speed = <0x1c200>;
+                        xlnx,use-parity = <0x0>;
+                        xlnx,edk-iptype = "PERIPHERAL";
+                        xlnx,odd-parity = <0x0>;
+                        status = "okay";
+                        xlnx,name = "axi_uartlite_0";
+                        xlnx,data-bits = <0x8>;
+                        xlnx,parity = "No_Parity";
+                        phandle = <0x3>;
+                };
 
                 microblaze_0_local_memory_dlmb_bram_if_cntlr: lmb_bram_if_cntlr@0 {
                         xlnx,edk-special = "BRAM_CTRL";
@@ -238,7 +268,7 @@
                         xlnx,edk-iptype = "PERIPHERAL";
                         reg = <0x44a00000 0x10000>;
                         xlnx,name = "my_pwm_ip_0";
-                        phandle = <0x3>;
+                        phandle = <0x4>;
                 };
         };
 
@@ -252,9 +282,11 @@
         };
 
         chosen {
+                stdout-path = "serial0:115200n8";
         };
 
         aliases {
+                serial0 = "/amba_pl/serial@40600000";
         };
 
         __symbols__ {
@@ -262,7 +294,9 @@
                 microblaze_0 = "/cpus_microblaze@0/cpu@0";
                 clock = "/clocks";
                 clk_cpu_0 = "/clocks/clk_cpu@0";
+                clk_bus_0 = "/clocks/clk_bus_0@1";
                 amba_pl = "/amba_pl";
+                axi_uartlite_0 = "/amba_pl/serial@40600000";
                 microblaze_0_local_memory_dlmb_bram_if_cntlr = "/amba_pl/lmb_bram_if_cntlr@0";
                 my_pwm_ip_0 = "/amba_pl/my_pwm_ip@44a00000";
                 microblaze_0_local_memory_dlmb_bram_if_cntlr_memory = "/memory@0";

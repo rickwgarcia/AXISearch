@@ -60,20 +60,20 @@ os_config:
       permission: read_write
       type: string
       value: None;
-      default: None;
+      default: axi_uartlite_0
       options:
       - None
-      - ''
+      - axi_uartlite_0
       description: stdin peripheral
     standalone_stdout:
       name: standalone_stdout
       permission: read_write
       type: string
       value: None;
-      default: None;
+      default: axi_uartlite_0
       options:
       - None
-      - ''
+      - axi_uartlite_0
       description: stdout peripheral
     standalone_ttc_select_cntr:
       name: standalone_ttc_select_cntr
@@ -150,6 +150,10 @@ include_folder: include
 lib_folder: lib
 libsrc_folder: libsrc
 drv_info:
+  axi_uartlite_0:
+    driver: uartlite
+    ip_name: axi_uartlite
+    path: /tools/Xilinx/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/uartlite_v3_11
   microblaze_0_local_memory_dlmb_bram_if_cntlr:
     driver: bram
     ip_name: lmb_bram_if_cntlr
