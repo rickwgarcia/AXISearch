@@ -14,12 +14,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Project Roadmap.md",
+                "file": "AXI4-Lite.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Project Roadmap"
+              "title": "AXI4-Lite"
             }
           }
         ]
@@ -203,12 +203,12 @@
   },
   "active": "d66bfa1f5305dce2",
   "lastOpenFiles": [
-    "AXI4-Lite.md",
-    "Project Roadmap.md",
-    "FIFO.md",
     "Finite State Machine.md",
     "Interrupt Signals.md",
     "Memory Mapping.md",
+    "Project Roadmap.md",
+    "AXI4-Lite.md",
+    "FIFO.md",
     "MicroBlaze.md",
     "Run (Start Search).md",
     "sliding window.md",
