@@ -15,6 +15,8 @@
 	)
 	(
 		// Users to add ports here
+		(* X_INTERFACE_PARAMETER = "SENSITIVITY LEVEL_HIGH" *)  //TODO: need help with irq (interupt)
+		output reg irq, 
 
 		// User ports ends
 		// Do not modify the ports beyond this line
@@ -351,6 +353,60 @@
     //    If the read state machine is in the data phase, drive the data out.
     assign S_AXI_RDATA = reg_data_out;
     // Add user logic here
+    
+    //Internal counter
+    reg[6:0] current_idx; 
+    
+    //64 bit search window and sentinel value
+    wire [63:0] search_window;
+    wire [31:0] current_word; 
+    wire [31:0] next_word; 
+    wire [63:0] sentinel_value; 
+    
+    //Assign the bounds, with wrap around logic
+    assign current_word = slv_reg_mem[current_idx];
+    assign next_word = (current_idx == 127) ? slv_reg_mem[0] : slv_reg_mem[current_idx + 1]; //for self, (condition) ? if_true : if_false
+    
+    //Create the 64 bit window
+    assign search_window = {current_word, next_word}; 
+    
+    //Create the full sentinel value, the target
+    assign sentinel_value = {slv_reg_flag_upper, slv_reg_flag_lower};
+    
+    always @(posedge S_AXI_ACLK) begin  
+        if (S_AXI_ARESETN == 1'b0 ) begin
+            current_idx     <= 0; //set index to 0
+            slv_reg_status  <= 0; 
+            irq             <= 1'b0;
+        end else begin 
+            if (slv_reg_run[0] == 1'b1 && slv_reg_status[0] == 1'b0) begin 
+                if(search_window == sentinel_value) begin   // MATCH FOUND 
+                    slv_reg_status[0]      <= 1'b1;         // Set Match Found bit
+                    slv_reg_status[22:16]  <= current_idx;  // Store offset (lower register index)
+                    irq                    <= 1'b1;         // Pulse IRQ high
+                end else if (current_idx == 127) begin      // WRAP AROUND, NO MATCHES
+                    slv_reg_status[0]      <= 1'b0;         // No match
+                    slv_reg_status[31:1]   <= 0;            // Clear offset if not found
+                    irq                    <= 1'b0;         // IRQ remains low
+                end else begin                              // INCEMENT SEARCH
+                    current_idx <= current_idx + 1;         // Add one
+                    irq         <= 1'b0;                    // IRQ remains low
+                    //clear slv_reg_run??
+                end
+            end else begin // Reset state if CPU clears the Run bit
+                if (!slv_reg_run[0]) begin
+                    current_idx    <= 0;
+                    slv_reg_status <= 0;
+                    irq            <= 1'b0;
+                end
+            end
+        end
+    end  
+                 
+                    
+                
+    
+    
 
 	// User logic ends
 
