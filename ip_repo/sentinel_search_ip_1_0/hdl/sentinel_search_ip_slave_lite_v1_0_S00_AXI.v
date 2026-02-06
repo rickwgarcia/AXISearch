@@ -15,7 +15,6 @@
 	)
 	(
 		// Users to add ports here
-		(* X_INTERFACE_PARAMETER = "SENSITIVITY LEVEL_HIGH" *)  //TODO: need help with irq (interupt)
 		output reg irq, 
 
 		// User ports ends
@@ -394,7 +393,7 @@
                     //clear slv_reg_run??
                 end
             end else begin // Reset state if CPU clears the Run bit
-                if (!slv_reg_run[0]) begin
+                if (slv_reg_run[0] == 1'b0 ) begin
                     current_idx    <= 0;
                     slv_reg_status <= 0;
                     irq            <= 1'b0;

@@ -25,6 +25,7 @@
 	)
 	(
 		// Users to add ports here
+		input wire in_irq, 
 
 		// User ports ends
 		// Do not modify the ports beyond this line

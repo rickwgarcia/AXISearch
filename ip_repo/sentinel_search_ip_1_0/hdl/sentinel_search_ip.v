@@ -73,14 +73,18 @@
 		output wire [C_S_AXI_INTR_DATA_WIDTH-1 : 0] s_axi_intr_rdata,
 		output wire [1 : 0] s_axi_intr_rresp,
 		output wire  s_axi_intr_rvalid,
-		input wire  s_axi_intr_rready,
-		output wire  irq
+		input wire  s_axi_intr_rready
 	);
+	
+	wire w_irq; 
+	
+	
 // Instantiation of Axi Bus Interface S00_AXI
 	sentinel_search_ip_slave_lite_v1_0_S00_AXI # ( 
 		.C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
 		.C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
 	) sentinel_search_ip_slave_lite_v1_0_S00_AXI_inst (
+	     .irq(w_irq),
 		.S_AXI_ACLK(s00_axi_aclk),
 		.S_AXI_ARESETN(s00_axi_aresetn),
 		.S_AXI_AWADDR(s00_axi_awaddr),
@@ -135,7 +139,7 @@
 		.S_AXI_RRESP(s_axi_intr_rresp),
 		.S_AXI_RVALID(s_axi_intr_rvalid),
 		.S_AXI_RREADY(s_axi_intr_rready),
-		.irq(irq)
+		.in_irq(w_irq)
 	);
 
 	// Add user logic here
