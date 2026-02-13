@@ -1,0 +1,16 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (lin64) Build 6140274 Wed May 21 22:58:25 MDT 2025
+| Date         : Thu Feb 12 18:14:18 2026
+| Host         : rick-g-laptop running 64-bit Ubuntu 24.04.3 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_sentinel_search_ip_0_3'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_sentinel_search_ip_0_3 (user.org:user:sentinel_search_ip:2.0) from (Rev. 2) to (Rev. 3)
+
