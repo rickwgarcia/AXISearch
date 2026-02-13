@@ -16,7 +16,7 @@ entity sentinel_search_ip_slave_lite_v2_0_S00_AXI is
 	);
 	port (
 		-- Users to add ports here
-		irq           : out std_logic;
+		irq_out           : out std_logic;
 
 		-- User ports ends
 		-- Do not modify the ports beyond this line
@@ -362,7 +362,7 @@ begin
         if rising_edge(S_AXI_ACLK) then
             if S_AXI_ARESETN = '0' then
                 current_idx    <= (others => '0');
-                irq            <= '0';
+                irq_out        <= '0';
                 slv_reg_status <= (others => '0');
             else
                 -- Run logic: Run bit is high and we haven't found a match yet
@@ -371,22 +371,22 @@ begin
                     if (search_window = sentinel_value) then
                         slv_reg_status(0) <= '1'; -- Match Found
                         slv_reg_status(22 downto 16) <= std_logic_vector(current_idx);
-                        irq <= '1';
+                        irq_out <= '1';
                     
                     elsif (current_idx = 127) then
                         slv_reg_status(0) <= '0'; -- End of memory, no match
-                        irq <= '0';
+                        irq_out <= '0';
                     
                     else
                         current_idx <= current_idx + 1;
-                        irq <= '0';
+                        irq_out <= '0';
                     end if;
 
                 -- Reset state if CPU clears the Run bit
                 elsif (slv_reg_run(0) = '0') then
                     current_idx    <= (others => '0');
                     slv_reg_status <= (others => '0');
-                    irq            <= '0';
+                    irq_out           <= '0';
                 end if;
             end if;
         end if;

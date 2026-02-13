@@ -26,6 +26,7 @@ entity sentinel_search_ip_slave_lite_inter_v2_0_S_AXI_INTR is
 	);
 	port (
 		-- Users to add ports here
+		irq_in           : in std_logic;
 
 		-- User ports ends
 		-- Do not modify the ports beyond this line
@@ -131,7 +132,7 @@ architecture arch_imp of sentinel_search_ip_slave_lite_inter_v2_0_S_AXI_INTR is
 	signal s_irq          : std_logic;                                          
 	signal intr_all_ff    : std_logic;                                          
 	signal intr_ack_all_ff: std_logic;                                          
-	signal aw_en	: std_logic;                                                 
+	signal aw_en	: std_logic;                                               
 
 
 	function or_reduction (vec : in std_logic_vector) return std_logic is           
@@ -157,6 +158,9 @@ begin
 	-- axi_awready is asserted for one S_AXI_ACLK clock cycle when both
 	-- S_AXI_AWVALID and S_AXI_WVALID are asserted. axi_awready is
 	-- de-asserted when reset is low.
+	
+	-- Connect my interupt from logic to this file
+	intr(0) <= irq_in;  
 
 	process (S_AXI_ACLK)
 	begin
